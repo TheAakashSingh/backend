@@ -17,7 +17,7 @@ app.use(sessionl({
 
 const Register = require("./models/userRegister");
 
-const static_path = path.join(__dirname, "../views");
+const static_path = path.join(__dirname, "views");
 app.use(express.static(static_path));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json()); // Parse JSON bodies
@@ -56,13 +56,6 @@ app.get("/logout", (req, res) => {
     });
 });
 
-
-const session = require("express-session");
-app.use(session({
-    secret: "your-secret-key",
-    resave: false,
-    saveUninitialized: true,
-}));
 
 app.post("/userRegister", async (req, res) => {
     try {
